@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050706">
+  <meta name="description" content="Selva: Sobrevivência — aventura arcade em 15 níveis feita com PyScript.">
+  <title>SELVA: SOBREVIVÊNCIA</title>
+
+  <!-- Estilos do jogo -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <section id="tela-inicio" aria-label="Tela inicial">
+    <div class="arcade-card">
+      <div class="arcade-kicker">★ ARCADE SURVIVAL ★</div>
+      <img id="capa-jogo" src="./assets/imagens/nivel_01.png" alt="Imagem da selva">
+      <h1 id="titulo-abertura" class="pixel-title">SELVA: SOBREVIVÊNCIA</h1>
+      <p id="subtitulo-abertura">15 níveis • escolhas • itens • vida • finais</p>
+      <p id="autor-abertura">Projeto baseado no código original</p>
+      <button id="botao-iniciar" class="arcade-button primary" type="button" disabled>CARREGANDO...</button>
+      <p class="dica">TECLADO: 1 • 2 • 3 &nbsp; | &nbsp; mouse/toque também funciona</p>
+    </div>
+  </section>
+
+  <main id="jogo">
+    <header class="topbar">
+      <div class="game-title">🦜 SELVA.EXE</div>
+      <div class="level-readout"><span id="progresso-texto">NÍVEL 01 / 15</span></div>
+      <div class="controls">[1] [2] [3] ESCOLHAS</div>
+      <div class="progress" aria-label="Progresso da aventura">
+        <div id="barra-progresso"></div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="media-panel" aria-label="Imagem da fase atual">
+        <div class="media-frame">
+          <img id="imagem-cena" src="./assets/imagens/nivel_01.png" alt="Imagem do nível atual">
+        </div>
+      </section>
+
+      <section id="painel-cena" class="story-panel" aria-live="polite">
+        <div class="scene-head">
+          <h2 id="titulo-cena">NÍVEL 01 // O BURACO NA SELVA</h2>
+          <div class="badge">LIVE</div>
+        </div>
+
+        <div id="texto-cena">Preparando aventura...</div>
+
+        <div class="status">
+          <div class="status-box">
+            <span class="status-label">Vida</span>
+            <span class="status-value"><span id="vida">❤️ ❤️ ❤️ 🖤 🖤</span> <small id="vida-num">3/5</small></span>
+          </div>
+          <div class="status-box">
+            <span class="status-label">Inventário</span>
+            <span id="inventario" class="status-value">Vazio</span>
+          </div>
+          <div class="status-box">
+            <span class="status-label">Pontos / Fase</span>
+            <span class="status-value"><span id="pontos">0</span> / <span id="fase-atual">01/15</span></span>
+          </div>
+        </div>
+
+        <div id="opcoes" class="options" aria-label="Escolhas">
+          <button id="opcao1" class="botao-opcao" type="button"></button>
+          <button id="opcao2" class="botao-opcao" type="button"></button>
+          <button id="opcao3" class="botao-opcao" type="button"></button>
+        </div>
+
+        <button id="reiniciar" class="secondary-button" type="button">↻ REINICIAR AVENTURA</button>
+      </section>
+    </div>
+  </main>
+
+  <section id="final" aria-label="Resultado da aventura">
+    <div class="arcade-card">
+      <div id="final-icone" class="final-icon">🏆</div>
+      <h1 id="final-titulo" class="pixel-title final-title good-text">RESGATE CONCLUÍDO!</h1>
+      <p id="final-texto"></p>
+      <div class="final-stats">
+        <div id="final-vida" class="final-stat"></div>
+        <div id="final-pontos" class="final-stat"></div>
+        <div id="final-itens" class="final-stat"></div>
+      </div>
+      <button id="voltar-inicio" class="arcade-button" type="button">↻ JOGAR NOVAMENTE</button>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="assertive"></div>
+
+  <audio id="audio-fundo" loop preload="metadata"></audio>
+
+  <!-- Lógica do jogo: JavaScript nativo para máxima compatibilidade com GitHub Pages -->
+  <script src="./main.js" defer></script>
+</body>
+</html>
