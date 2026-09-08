@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050706">
+  <meta name="description" content="Selva: Sobrevivência — aventura interativa em 15 níveis.">
+  <title>SELVA: SOBREVIVÊNCIA</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <section id="tela-inicio" aria-label="Tela inicial">
+    <div class="arcade-card start-card">
+      <div class="arcade-kicker">ARCADE SURVIVAL</div>
+      <h1 id="titulo-abertura" class="pixel-title">SELVA: SOBREVIVÊNCIA</h1>
+      <p id="subtitulo-abertura">15 níveis • escolhas • itens • finais</p>
+      <p id="autor-abertura">Uma aventura interativa de sobrevivência</p>
+
+      <div class="start-info">
+        <div><strong>15</strong><span>NÍVEIS</span></div>
+        <div><strong>3</strong><span>VIDAS INICIAIS</span></div>
+        <div><strong>+</strong><span>ITENS E ROTAS</span></div>
+      </div>
+
+      <button id="botao-iniciar" class="arcade-button primary" type="button">INICIAR AVENTURA</button>
+      <p class="dica">Teclas 1, 2 e 3 para escolher • Enter para confirmar</p>
+      <p id="mensagem-save" class="save-message" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <main id="jogo">
+    <header class="topbar">
+      <div class="game-title">SELVA.EXE</div>
+      <div class="level-readout"><span id="progresso-texto">NÍVEL 01 / 15</span></div>
+      <div class="top-actions">
+        <button id="botao-som" class="hud-button" type="button" aria-label="Alternar som">SOM: ON</button>
+        <button id="botao-salvar" class="hud-button" type="button">SALVAR</button>
+      </div>
+      <div class="progress" aria-label="Progresso da aventura">
+        <div id="barra-progresso"></div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="media-panel" aria-label="Registro visual da fase atual">
+        <div class="media-label">REGISTRO VISUAL // SELVA</div>
+        <div class="media-frame">
+          <video id="video-cena" class="scene-video" controls playsinline muted preload="metadata" aria-label="Vídeo do nível 1"></video>
+          <img id="imagem-cena" src="./assets/imagens/nivel_02.png" alt="Imagem do nível atual">
+          <div id="loading-image" class="image-loading" aria-hidden="true">CARREGANDO CENA...</div>
+        </div>
+        <div class="media-footer">
+          <span id="nivel-media">NÍVEL 01</span>
+          <span id="status-cena">CENA ATIVA</span>
+        </div>
+      </section>
+
+      <section id="painel-cena" class="story-panel" aria-live="polite">
+        <div class="scene-head">
+          <div>
+            <span class="scene-kicker">OBJETIVO ATUAL</span>
+            <h2 id="titulo-cena">NÍVEL 01 // O BURACO NA SELVA</h2>
+          </div>
+          <div class="badge">ATIVO</div>
+        </div>
+
+        <div id="texto-cena" class="story-text">Preparando aventura...</div>
+
+        <div class="status">
+          <div class="status-box">
+            <span class="status-label">Vida</span>
+            <span id="vida" class="life-bar" aria-label="Vida atual"></span>
+            <span id="vida-num" class="small-value">3/5</span>
+          </div>
+          <div class="status-box">
+            <span class="status-label">Inventário</span>
+            <span id="inventario" class="status-value">Vazio</span>
+          </div>
+          <div class="status-box">
+            <span class="status-label">Pontuação</span>
+            <span class="status-value"><span id="pontos">0</span> PTS</span>
+          </div>
+        </div>
+
+        <div class="choice-heading">
+          <span>ESCOLHA UMA AÇÃO</span>
+          <span id="choice-count">2 opções</span>
+        </div>
+
+        <div id="opcoes" class="options" aria-label="Escolhas">
+          <button id="opcao1" class="botao-opcao" type="button"></button>
+          <button id="opcao2" class="botao-opcao" type="button"></button>
+          <button id="opcao3" class="botao-opcao" type="button"></button>
+        </div>
+
+        <div class="game-actions">
+          <button id="reiniciar" class="secondary-button" type="button">REINICIAR</button>
+          <span class="interaction-hint">1 / 2 / 3 • Enter</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section id="final" aria-label="Resultado da aventura">
+    <div class="arcade-card final-card">
+      <div id="final-icone" class="final-icon">RESULTADO</div>
+      <h1 id="final-titulo" class="pixel-title final-title good-text">RESGATE CONCLUÍDO</h1>
+      <p id="final-texto"></p>
+      <div class="final-stats">
+        <div id="final-vida" class="final-stat"></div>
+        <div id="final-pontos" class="final-stat"></div>
+        <div id="final-itens" class="final-stat"></div>
+      </div>
+      <div class="final-actions">
+        <button id="voltar-inicio" class="arcade-button" type="button">JOGAR NOVAMENTE</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="assertive"></div>
+  <audio id="audio-fundo" loop preload="metadata"></audio>
+
+  <script src="./main.js" defer></script>
+</body>
+</html>
